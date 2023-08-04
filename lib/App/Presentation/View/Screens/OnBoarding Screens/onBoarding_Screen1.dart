@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/OnBoarding%20Screens/onBoarding_Screen2.dart';
 import '../../../../Styles/Assets.dart';
 import '../../Widgets/customMainButton.dart';
 
@@ -45,7 +43,7 @@ class onBoardingScreen1 extends StatelessWidget {
               customMainButton(
                 onPressed: () {
                   controller.nextPage(
-                      duration: Duration(milliseconds: 300),
+                      duration: const Duration(milliseconds: 300),
                       curve: Curves.ease);
                 },
                 device: device,

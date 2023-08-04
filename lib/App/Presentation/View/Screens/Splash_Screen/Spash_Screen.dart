@@ -9,14 +9,13 @@ class SplashScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    Size device = MediaQuery.sizeOf(context);
     return Scaffold(
       body: AnimatedSplashScreen(
         duration: 2000,
         splash: Image.asset(
           Aseets.appLogo,
         ),
-        nextScreen: SplashScreen2(),
+        nextScreen: const SplashScreen2(),
         splashTransition: SplashTransition.scaleTransition,
         curve: Curves.bounceOut,
         backgroundColor: const Color(colors.kPrimaryColor),
