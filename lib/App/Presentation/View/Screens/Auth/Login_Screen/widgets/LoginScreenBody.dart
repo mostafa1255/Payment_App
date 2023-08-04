@@ -3,6 +3,7 @@ import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart'
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
+import '../../../../Widgets/customBackIcon.dart';
 import '../../../../Widgets/customCheckBox.dart';
 import '../../../../Widgets/customSideButton.dart';
 import '../../../../Widgets/customTextField1.dart';
@@ -28,24 +29,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Container(
-                decoration: BoxDecoration(
-                    color: Colors.blue.shade50,
-                    borderRadius: BorderRadius.circular(50)),
-                child: Row(
-                  children: [
-                    SizedBox(
-                      width: device.width * 0.01,
-                    ),
-                    IconButton(
-                        onPressed: () {},
-                        icon: const Icon(
-                          Icons.arrow_back_ios,
-                          color: Color(colors.kPrimaryColor),
-                        )),
-                  ],
-                ),
-              ),
+              customBackIcon(device: device),
               Icon(
                 Icons.account_circle,
                 size: device.width * 0.14,
@@ -82,15 +66,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
           SizedBox(
             height: device.height * 0.02,
           ),
-          TextFormField(
-            decoration: InputDecoration(
-                suffixIcon: IconButton(
-                    onPressed: () {}, icon: Image.asset(Aseets.eyesplash)),
-                prefixIcon: Image.asset(Aseets.Lock),
-                border:
-                    OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
-                labelText: "Enter Your Password"),
-          ),
+          customTextField2(),
           Row(
             children: [
               const customCheckBox(),
@@ -128,3 +104,23 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
     ));
   }
 }
+
+class customTextField2 extends StatelessWidget {
+  const customTextField2({
+    super.key,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return TextFormField(
+      decoration: InputDecoration(
+          suffixIcon: IconButton(
+              onPressed: () {}, icon: Image.asset(Aseets.eyesplash)),
+          prefixIcon: Image.asset(Aseets.Lock),
+          border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          labelText: "Enter Your Password"),
+    );
+  }
+}
+

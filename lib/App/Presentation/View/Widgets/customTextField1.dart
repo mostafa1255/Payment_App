@@ -12,8 +12,13 @@ class customTextField1 extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
+          enabledBorder: OutlineInputBorder(
+              borderRadius: BorderRadius.circular(15),
+              borderSide: BorderSide(color: Colors.grey.withOpacity(0.45))),
           prefixIcon: Image.asset(icon),
-          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          border: OutlineInputBorder(
+            borderRadius: BorderRadius.circular(15),
+          ),
           labelText: txt),
     );
   }

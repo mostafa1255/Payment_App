@@ -7,4 +7,8 @@ class Aseets {
   static const account = "assets/Icons/Group.png";
   static const Lock = "assets/Icons/Group2.png";
   static const eyesplash = "assets/Icons/eye-slash.png";
+  static const Phone = "assets/Icons/Group3.png";
+  static const Email = "assets/Icons/Group4.png";
+  static const country = "assets/Icons/Group 1844.png";
+  static const OTP = "assets/images/Connectivity 03.png";
 }
