@@ -1,6 +1,7 @@
 import 'package:animated_splash_screen/animated_splash_screen.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:payment_app/App/Presentation/View/Screens/OnBoarding%20Screens/onBoarding_Screen1.dart';
 import '../../../../Styles/Assets.dart';
 
 class SplashScreen2 extends StatelessWidget {
@@ -10,11 +11,11 @@ class SplashScreen2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
       body: AnimatedSplashScreen(
-        duration: 150000,
+        duration: 2000,
         splash: Image.asset(
           Aseets.Spare,
         ),
-        nextScreen: Text("Mostafa"),
+        nextScreen: onBoardingScreen1(),
         splashTransition: SplashTransition.scaleTransition,
         curve: Curves.bounceOut,
         backgroundColor: Colors.white,
