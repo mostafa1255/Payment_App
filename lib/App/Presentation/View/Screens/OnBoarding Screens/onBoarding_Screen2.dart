@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/OnBoarding%20Screens/onBoarding_Screen2.dart';
 import '../../../../Styles/Assets.dart';
 import '../../Widgets/customMainButton.dart';
 
-class onBoardingScreen1 extends StatelessWidget {
-  const onBoardingScreen1({super.key, required this.controller});
+class onBoardingScreen2 extends StatelessWidget {
+  const onBoardingScreen2({super.key, required this.controller});
   final PageController controller;
   @override
   Widget build(BuildContext context) {
@@ -19,11 +17,11 @@ class onBoardingScreen1 extends StatelessWidget {
               SizedBox(
                 height: device.height * 0.05,
               ),
-              Center(child: Image.asset(Aseets.dollars)),
+              Center(child: Image.asset(Aseets.walkthrough)),
               SizedBox(
                 height: device.height * 0.04,
               ),
-              Text("Spend & Save With Spare",
+              Text("Spare Is Easy & Secure",
                   style: TextStyle(
                       fontFamily: "Inter", fontSize: device.width * 0.07)),
               SizedBox(
@@ -33,7 +31,7 @@ class onBoardingScreen1 extends StatelessWidget {
                 padding: EdgeInsets.symmetric(horizontal: device.width * 0.2),
                 child: Text(
                     textAlign: TextAlign.center,
-                    "With spare , you can for bills  food entertaiment, utilities and still save",
+                    "spare is easy to use and all your transactions are secured",
                     style: TextStyle(
                       color: Colors.grey,
                       fontSize: device.width * 0.04,
@@ -42,15 +40,14 @@ class onBoardingScreen1 extends StatelessWidget {
               SizedBox(
                 height: device.height * 0.15,
               ),
-              customMainButton(
-                onPressed: () {
+              customMainButton( onPressed: () {
                   controller.nextPage(
                       duration: Duration(milliseconds: 300),
                       curve: Curves.ease);
                 },
                 device: device,
                 txt: "Get Started",
-              ),
+              )
             ],
           ),
         ),
