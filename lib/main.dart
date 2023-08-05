@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/OTP_Sucsess.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/otp_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
 
@@ -15,7 +16,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: otpScreen(),
+      home: otpsucsessScreen(),
     );
   }
 }
