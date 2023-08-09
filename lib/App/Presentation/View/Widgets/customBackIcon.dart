@@ -5,10 +5,12 @@ class customBackIcon extends StatelessWidget {
   const customBackIcon({
     super.key,
     required this.device,
+    required this.iconData,
+    required this.color,
   });
-
+  final Color color;
   final Size device;
-
+  final IconData iconData;
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -19,9 +21,9 @@ class customBackIcon extends StatelessWidget {
           borderRadius: BorderRadius.circular(device.width * 0.14 / 2)),
       child: IconButton(
           onPressed: () {},
-          icon: const Icon(
-            Icons.arrow_back_ios,
-            color: Color(colors.kPrimaryColor),
+          icon: Icon(
+            iconData,
+            color: color,
           )),
     );
   }

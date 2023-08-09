@@ -22,7 +22,7 @@ class RegisterScreenBody extends StatelessWidget {
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            customBackIcon(device: device),
+            customBackIcon(device: device,iconData: Icons.arrow_back_ios,color: Color(colors.kPrimaryColor)),
             Center(
                 child: Column(
               children: [

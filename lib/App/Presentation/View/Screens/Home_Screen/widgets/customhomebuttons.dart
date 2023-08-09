@@ -20,7 +20,7 @@ class customhomebuttons extends StatelessWidget {
               color: Color(
                 colors.kPrimaryColor,
               ),
-              width: 3)),
+              width: 2.5)),
           backgroundColor: const MaterialStatePropertyAll(Colors.white),
           minimumSize: MaterialStatePropertyAll(
               Size(device.width * 0.9 / 3, device.height * 0.055)),

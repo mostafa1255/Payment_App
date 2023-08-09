@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/OTP_Sucsess.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/otp_Screen.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/Home_Screen.dart';
+import 'App/Presentation/View/Screens/Home_Screen/widgets/Bar_Chart.dart';
 
 void main() {
   runApp(const MyApp());

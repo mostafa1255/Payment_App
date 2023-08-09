@@ -21,7 +21,7 @@ class otpScreenBody extends StatelessWidget {
             SizedBox(
               height: device.height * 0.05,
             ),
-            customBackIcon(device: device),
+            customBackIcon(device: device, iconData: Icons.arrow_back_ios,color: Color(colors.kPrimaryColor)),
             Center(child: Image.asset(Aseets.OTP)),
             SizedBox(
               height: device.height * 0.03,

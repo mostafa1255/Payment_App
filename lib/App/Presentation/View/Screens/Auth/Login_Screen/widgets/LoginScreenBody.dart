@@ -23,83 +23,85 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
         child: Padding(
       padding: EdgeInsets.symmetric(
           horizontal: device.width * 0.04, vertical: device.height * 0.02),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.start,
-        children: [
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-            children: [
-              customBackIcon(device: device),
-              Icon(
-                Icons.account_circle,
-                size: device.width * 0.14,
-                color: Colors.grey,
-              )
-            ],
-          ),
-          SizedBox(
-            height: device.height * 0.02,
-          ),
-          Text(
-            "Welcome back,",
-            style: TextStyle(fontSize: device.width * 0.065),
-          ),
-          Text(
-            "Ugo",
-            style: TextStyle(
-              fontSize: device.width * 0.07,
-              fontFamily: "Inter",
+      child: SingleChildScrollView(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                customBackIcon(device: device, iconData: Icons.arrow_back_ios,color: Color(colors.kPrimaryColor)),
+                Icon(
+                  Icons.account_circle,
+                  size: device.width * 0.14,
+                  color: Colors.grey,
+                )
+              ],
             ),
-          ),
-          SizedBox(
-            height: device.height * 0.02,
-          ),
-          Text(
-            "Hope you are doing great?",
-            style:
-                TextStyle(fontSize: device.width * 0.035, color: Colors.grey),
-          ),
-          SizedBox(
-            height: device.height * 0.09,
-          ),
-          const customTextField1(icon: Aseets.account, txt: "First name"),
-          SizedBox(
-            height: device.height * 0.02,
-          ),
-          customTextField2(),
-          Row(
-            children: [
-              const customCheckBox(),
-              const Text(
-                "Remember me",
-                style: textstyle.textstyle14,
+            SizedBox(
+              height: device.height * 0.02,
+            ),
+            Text(
+              "Welcome back,",
+              style: TextStyle(fontSize: device.width * 0.065),
+            ),
+            Text(
+              "Ugo",
+              style: TextStyle(
+                fontSize: device.width * 0.07,
+                fontFamily: "Inter",
               ),
-              SizedBox(
-                width: device.width * 0.2,
-              ),
-              Text(
-                "Forget your password?",
-                style: textstyle.textstyle14
-                    .copyWith(color: const Color(colors.kPrimaryColor)),
-              )
-            ],
-          ),
-          SizedBox(
-            height: device.height * 0.05,
-          ),
-          customMainButton(
-            device: device,
-            txt: "Sign In",
-            onPressed: () {},
-          ),
-          SizedBox(
-            height: device.height * 0.02,
-          ),
-          customSideButton(
-            device: device,
-            txt: 'Sign Up',
-          )
-        ],
+            ),
+            SizedBox(
+              height: device.height * 0.02,
+            ),
+            Text(
+              "Hope you are doing great?",
+              style:
+                  TextStyle(fontSize: device.width * 0.035, color: Colors.grey),
+            ),
+            SizedBox(
+              height: device.height * 0.09,
+            ),
+            const customTextField1(icon: Aseets.account, txt: "First name"),
+            SizedBox(
+              height: device.height * 0.02,
+            ),
+            customTextField2(),
+            Row(
+              children: [
+                const customCheckBox(),
+                const Text(
+                  "Remember me",
+                  style: textstyle.textstyle14,
+                ),
+                SizedBox(
+                  width: device.width * 0.17,
+                ),
+                Text(
+                  "Forget your password?",
+                  style: textstyle.textstyle14
+                      .copyWith(color: const Color(colors.kPrimaryColor)),
+                )
+              ],
+            ),
+            SizedBox(
+              height: device.height * 0.05,
+            ),
+            customMainButton(
+              device: device,
+              txt: "Sign In",
+              onPressed: () {},
+            ),
+            SizedBox(
+              height: device.height * 0.02,
+            ),
+            customSideButton(
+              device: device,
+              txt: 'Sign Up',
+            )
+          ],
+        ),
       ),
     ));
   }
@@ -114,13 +116,11 @@ class customTextField2 extends StatelessWidget {
   Widget build(BuildContext context) {
     return TextFormField(
       decoration: InputDecoration(
-          suffixIcon: IconButton(
-              onPressed: () {}, icon: Image.asset(Aseets.eyesplash)),
+          suffixIcon:
+              IconButton(onPressed: () {}, icon: Image.asset(Aseets.eyesplash)),
           prefixIcon: Image.asset(Aseets.Lock),
-          border:
-              OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
+          border: OutlineInputBorder(borderRadius: BorderRadius.circular(15)),
           labelText: "Enter Your Password"),
     );
   }
 }
-
