@@ -36,7 +36,6 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_otp_text_field: ^1.1.1
-  flutterfire_cli: ^0.2.7
   font_awesome_flutter: ^10.5.0
   get: ^4.6.5
   get_it: ^7.6.0

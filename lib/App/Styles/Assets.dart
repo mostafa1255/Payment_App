@@ -11,4 +11,7 @@ class Aseets {
   static const Email = "assets/Icons/Group4.png";
   static const country = "assets/Icons/Group 1844.png";
   static const OTP = "assets/images/Connectivity 03.png";
+  static const notifecation = "assets/Icons/notification.png";
+  static const hide = "assets/Icons/Hide.png";
+  static const mask = "assets/images/Mask group.png";
 }
