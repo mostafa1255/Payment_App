@@ -14,4 +14,8 @@ class Aseets {
   static const notifecation = "assets/Icons/notification.png";
   static const hide = "assets/Icons/Hide.png";
   static const mask = "assets/images/Mask group.png";
+  static const cardPhoto = "assets/images/yellow.png";
+  static const dollar = "assets/Icons/Group5.png";
+  static const requestpayment = "assets/Icons/Group6.png";
+  static const wallet = "assets/Icons/Group7.png";
 }
