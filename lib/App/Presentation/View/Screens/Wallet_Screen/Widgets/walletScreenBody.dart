@@ -16,7 +16,7 @@ class walletScreenBody extends StatelessWidget {
     Size device = MediaQuery.sizeOf(context);
     return Padding(
       padding: EdgeInsets.symmetric(
-          horizontal: device.width * 0.025, vertical: device.height * 0.045),
+          horizontal: device.width * 0.03, vertical: device.height * 0.045),
       child: SingleChildScrollView(
         child: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
@@ -86,18 +86,14 @@ class walletScreenBody extends StatelessWidget {
             ),
             customsendmoneycontainer(device: device),
             SizedBox(
-              height: device.height * 0.02,
-            ),
-            customresievemoneycontainer(device: device),
-            SizedBox(
-              height: device.height * 0.02,
+              height: device.height * 0.03,
             ),
             customresievemoneycontainer(device: device),
             SizedBox(
               height: device.height * 0.02,
             ),
             const Text(
-              "May, 2022",
+              "April, 2022",
               style: textstyle.textstyle20,
             ),
             SizedBox(
@@ -105,12 +101,9 @@ class walletScreenBody extends StatelessWidget {
             ),
             customsendmoneycontainer(device: device),
             SizedBox(
-              height: device.height * 0.02,
+              height: device.height * 0.03,
             ),
             customsendmoneycontainer(device: device),
-            SizedBox(
-              height: device.height * 0.02,
-            ),
           ],
         ),
       ),

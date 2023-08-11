@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 
-
 import 'Widgets/walletScreenBody.dart';
 
 // ignore: camel_case_types
@@ -9,8 +8,6 @@ class walletScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-       
-        body: const walletScreenBody());
+    return const Scaffold(body: walletScreenBody());
   }
 }

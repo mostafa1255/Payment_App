@@ -1,11 +1,14 @@
+import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/Home_Screen.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Wallet_Screen/wallet_Screen.dart';
-import 'App/Presentation/View/Screens/Home_Screen/widgets/Bar_Chart.dart';
-import 'App/Presentation/View/Widgets/Navigation_Bar.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
+import 'firebase_options.dart';
 
-void main() {
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  await Firebase.initializeApp(
+    options: DefaultFirebaseOptions.currentPlatform,
+  );
   runApp(const MyApp());
 }
 
@@ -17,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return const GetMaterialApp(
       debugShowCheckedModeBanner: false,
-      home: bottomnavigationBar(),
+      home: RegisterScreen(),
     );
   }
 }

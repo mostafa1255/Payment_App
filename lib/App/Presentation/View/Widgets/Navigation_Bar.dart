@@ -5,8 +5,8 @@ import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/R
 import 'package:payment_app/App/Presentation/View/Screens/Wallet_Screen/wallet_Screen.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
-import 'package:payment_app/App/Styles/text_Style.dart';
 import '../Screens/Auth/Login_Screen/Login_Screen.dart';
+import 'customsendOperations.dart';
 
 class bottomnavigationBar extends StatefulWidget {
   const bottomnavigationBar({super.key});
@@ -46,7 +46,7 @@ class _bottomnavigationBarState extends State<bottomnavigationBar> {
                 SizedBox(
                   height: device.height * 0.02,
                 ),
-                Divider(),
+                const Divider(),
                 SizedBox(
                   height: device.height * 0.02,
                 ),
@@ -58,7 +58,7 @@ class _bottomnavigationBarState extends State<bottomnavigationBar> {
                 SizedBox(
                   height: device.height * 0.03,
                 ),
-                Divider(),
+                const Divider(),
                 SizedBox(
                   height: device.height * 0.02,
                 ),
@@ -79,15 +79,19 @@ class _bottomnavigationBarState extends State<bottomnavigationBar> {
           controller: _bottomBarController,
           bottomBarTheme: BottomBarTheme(
             heightOpened: device.height * 0.35,
-            selectedItemIconColor: Color(colors.kPrimaryColor),
-            decoration: BoxDecoration(color: Colors.white),
+            selectedItemIconColor: const Color(colors.kPrimaryColor),
+            decoration: const BoxDecoration(color: Colors.white),
             itemIconColor: Colors.grey,
           ),
           items: const [
-            BottomBarWithSheetItem(icon: Icons.home_filled),
+            BottomBarWithSheetItem(
+              icon: Icons.home_filled,
+            ),
             BottomBarWithSheetItem(icon: Icons.wallet),
-            BottomBarWithSheetItem(icon: Icons.message),
-            BottomBarWithSheetItem(icon: Icons.account_circle_sharp),
+            BottomBarWithSheetItem(
+              icon: FontAwesomeIcons.message,
+            ),
+            BottomBarWithSheetItem(icon: FontAwesomeIcons.user),
           ],
           onSelectItem: (index) {
             _slectedIndex = index;
@@ -95,40 +99,5 @@ class _bottomnavigationBarState extends State<bottomnavigationBar> {
           },
         ),
         body: screens[_slectedIndex]);
-  }
-}
-
-class customsendOperations extends StatelessWidget {
-  const customsendOperations({
-    super.key,
-    required this.device,
-    required this.txt1,
-    required this.Icon,
-  });
-
-  final Size device;
-  final String txt1;
-  final String Icon;
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      child: SizedBox(
-        child: Row(
-          children: [
-            SizedBox(
-              width: device.width * 0.02,
-            ),
-            Image.asset(Icon),
-            SizedBox(
-              width: device.width * 0.05,
-            ),
-            Text(
-              txt1,
-              style: textstyle.textstyle14.copyWith(color: Colors.black),
-            )
-          ],
-        ),
-      ),
-    );
   }
 }
