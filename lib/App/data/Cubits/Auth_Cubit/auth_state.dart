@@ -14,10 +14,19 @@ final class AuthSignUpFaliure extends AuthState {
 
   AuthSignUpFaliure({required this.errmessage});
 }
+
 final class AuthLoginSucsess extends AuthState {}
 
 final class AuthLoginFaliure extends AuthState {
   final String errmessage;
 
   AuthLoginFaliure({required this.errmessage});
+}
+
+final class AuthPhoneSucsess extends AuthState {}
+
+final class AuthPhoneFaliure extends AuthState {
+  final String errmessage;
+
+  AuthPhoneFaliure({required this.errmessage});
 }

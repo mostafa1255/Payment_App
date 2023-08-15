@@ -1,7 +1,10 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/otp_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/phonenumber.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Wallet_Screen/wallet_Screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -18,9 +21,7 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return const GetMaterialApp(
-      debugShowCheckedModeBanner: false,
-      home: RegisterScreen(),
-    );
+    return GetMaterialApp(
+        debugShowCheckedModeBanner: false, home: RegisterScreen());
   }
 }

@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/Data/cubit/auth_cubit.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/Home_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
 import 'package:payment_app/App/Styles/colors.dart';
@@ -11,7 +10,7 @@ import '../../../../Widgets/customBackIcon.dart';
 import '../../../../Widgets/customCheckBox.dart';
 import '../../../../Widgets/customSideButton.dart';
 import '../../../../Widgets/customTextField1.dart';
-
+import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 class LoginScreenBody extends StatefulWidget {
   const LoginScreenBody({super.key});
 
@@ -39,6 +38,7 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
             ));
             Get.to(() => homeScreen());
           } else if (state is AuthLoginFaliure) {
+            print(state.errmessage);
             Get.showSnackbar(GetSnackBar(
               title: "Faliure",
               message: state.errmessage,

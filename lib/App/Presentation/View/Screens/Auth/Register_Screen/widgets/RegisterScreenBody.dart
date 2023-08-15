@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/Data/cubit/auth_cubit.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/Login_Screen/Login_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/phonenumber.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customTextField1.dart';
@@ -10,6 +10,8 @@ import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
 import 'package:csc_picker/csc_picker.dart';
+import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
+import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 
 class RegisterScreenBody extends StatelessWidget {
   RegisterScreenBody({super.key});
@@ -30,7 +32,7 @@ class RegisterScreenBody extends StatelessWidget {
               backgroundColor: Colors.green,
               icon: Icon(Icons.check, color: Colors.white),
             ));
-            Get.to(() => LoginScreen());
+            // Get.to(() => otpScreen());
           } else if (state is AuthSignUpFaliure) {
             Get.showSnackbar(GetSnackBar(
               title: "Faliure",
@@ -40,15 +42,16 @@ class RegisterScreenBody extends StatelessWidget {
               icon: const Icon(Icons.check, color: Colors.white),
             ));
           } else if (state is LoadingState) {
-            CircularProgressIndicator();
+            const CircularProgressIndicator();
           }
         },
         builder: (context, state) {
           var cubit = BlocProvider.of<AuthCubit>(context);
           return Padding(
-            padding: EdgeInsets.symmetric(
-                horizontal: device.width * 0.03,
-                vertical: device.height * 0.04),
+            padding: EdgeInsets.only(
+                left: device.width * 0.03,
+                right: device.width * 0.03,
+                top: device.height * 0.05),
             child: SingleChildScrollView(
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
@@ -56,7 +59,7 @@ class RegisterScreenBody extends StatelessWidget {
                   customBackIcon(
                       device: device,
                       iconData: Icons.arrow_back_ios,
-                      color: Color(colors.kPrimaryColor)),
+                      color: const Color(colors.kPrimaryColor)),
                   Center(
                       child: Column(
                     children: [
@@ -137,12 +140,46 @@ class RegisterScreenBody extends StatelessWidget {
                       ),
                       GestureDetector(
                         onTap: () {
-                          Get.to(LoginScreen());
+                          Get.to(() => const LoginScreen());
                         },
                         child: Text(
                           "Sign in",
-                          style: textstyle.textstyle14
-                              .copyWith(color: Color(colors.kPrimaryColor)),
+                          style: textstyle.textstyle14.copyWith(
+                              color: const Color(colors.kPrimaryColor)),
+                        ),
+                      ),
+                    ],
+                  ),
+                  SizedBox(
+                    height: device.height * 0.01,
+                  ),
+                  const Center(
+                    child: Text(
+                      "OR",
+                      style: textstyle.textstyle16,
+                    ),
+                  ),
+                  SizedBox(
+                    height: device.height * 0.01,
+                  ),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      const Text(
+                        "Register with Phone Number",
+                        style: textstyle.textstyle14,
+                      ),
+                      SizedBox(
+                        width: device.width * 0.01,
+                      ),
+                      GestureDetector(
+                        onTap: () {
+                          Get.to(Phonenumber());
+                        },
+                        child: Text(
+                          "Sign Up with Phone",
+                          style: textstyle.textstyle14.copyWith(
+                              color: const Color(colors.kPrimaryColor)),
                         ),
                       ),
                     ],
