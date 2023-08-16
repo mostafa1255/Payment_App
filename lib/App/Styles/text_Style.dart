@@ -14,4 +14,6 @@ class textstyle {
       TextStyle(color: Colors.white, fontSize: 12, fontFamily: "Inter");
   static const textstyle20 =
       TextStyle(color: Colors.black, fontSize: 20, fontFamily: "Inter");
+  static const textstyle32 =
+      TextStyle(color: Colors.black, fontSize: 32, fontFamily: "Inter");
 }
