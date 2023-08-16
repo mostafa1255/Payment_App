@@ -7,11 +7,13 @@ class customMainButton extends StatelessWidget {
     required this.device,
     required this.txt,
     this.onPressed,
+    this.addicon = false,
   });
 
   final Size device;
   final String txt;
   final void Function()? onPressed;
+  final bool addicon;
   @override
   Widget build(BuildContext context) {
     return ElevatedButton(
@@ -23,9 +25,23 @@ class customMainButton extends StatelessWidget {
             shape: MaterialStatePropertyAll(RoundedRectangleBorder(
                 borderRadius: BorderRadius.circular(23)))),
         onPressed: onPressed,
-        child: Text(
-          txt,
-          style: TextStyle(fontSize: device.width * 0.045),
-        ));
+        child: addicon == false
+            ? Text(
+                txt,
+                style: TextStyle(fontSize: device.width * 0.045),
+              )
+            : Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  const Icon(Icons.add),
+                  SizedBox(
+                    width: device.width * 0.022,
+                  ),
+                  Text(
+                    txt,
+                    style: TextStyle(fontSize: device.width * 0.045),
+                  )
+                ],
+              ));
   }
 }
