@@ -12,7 +12,6 @@ class addmoneyScreenBody extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Size device = MediaQuery.sizeOf(context);
-
     return Padding(
       padding: EdgeInsets.only(
           top: device.height * 0.05,
