@@ -18,4 +18,6 @@ class Aseets {
   static const dollar = "assets/Icons/Group5.png";
   static const requestpayment = "assets/Icons/Group6.png";
   static const wallet = "assets/Icons/Group7.png";
+    static const message = "assets/images/Messages 03.png";
+
 }

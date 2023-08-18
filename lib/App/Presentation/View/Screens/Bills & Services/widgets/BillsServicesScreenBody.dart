@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customSearchTextField.dart';
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
-
 import 'customBillServiceRows.dart';
 
 class BillsServicesScreenBody extends StatelessWidget {
