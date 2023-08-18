@@ -4,10 +4,11 @@ class customSearchTextField extends StatelessWidget {
   const customSearchTextField({
     super.key,
     required this.device,
+    required this.txt,
   });
 
   final Size device;
-
+  final String txt;
   @override
   Widget build(BuildContext context) {
     return SizedBox(
@@ -21,7 +22,7 @@ class customSearchTextField extends StatelessWidget {
             border: OutlineInputBorder(
               borderRadius: BorderRadius.circular(12),
             ),
-            labelText: "Search"),
+            labelText: txt),
       ),
     );
   }

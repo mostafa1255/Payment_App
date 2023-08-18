@@ -57,7 +57,7 @@ class sendToanotheruserscreenBody extends StatelessWidget {
           SizedBox(
             height: device.height * 0.02,
           ),
-          customSearchTextField(device: device),
+          customSearchTextField(device: device,txt: "Search"),
           SizedBox(
             height: device.height * 0.02,
           ),

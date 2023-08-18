@@ -328,6 +328,14 @@ packages:
       url: "https://pub.flutter-io.cn"
     source: hosted
     version: "1.0.0"
+  numpad_layout:
+    dependency: "direct main"
+    description:
+      name: numpad_layout
+      sha256: "3143369e7d5f2c4ccfd3559b1abc523283db670ab4e7c274998bf651d3d9eb7b"
+      url: "https://pub.flutter-io.cn"
+    source: hosted
+    version: "0.0.3"
   page_transition:
     dependency: transitive
     description:
