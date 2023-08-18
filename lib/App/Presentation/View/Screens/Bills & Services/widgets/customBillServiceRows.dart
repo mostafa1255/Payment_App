@@ -8,33 +8,37 @@ class customBillServiceRows extends StatelessWidget {
     required this.device,
     required this.txt,
     required this.iconData1,
+    this.onTap,
   });
 
   final Size device;
   final String txt;
   final IconData iconData1;
-
+  final void Function()? onTap;
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Icon(
-          iconData1,
-          color: Color(colors.kPrimaryColor),
-        ),
-        SizedBox(
-          width: device.width * 0.03,
-        ),
-        Text(
-          txt,
-          style: textstyle.textstyle14.copyWith(color: Colors.black),
-        ),
-        Spacer(),
-        Icon(
-          Icons.arrow_forward_ios_outlined,
-          size: device.width * 0.04,
-        )
-      ],
+    return GestureDetector(
+      onTap: onTap,
+      child: Row(
+        children: [
+          Icon(
+            iconData1,
+            color: Color(colors.kPrimaryColor),
+          ),
+          SizedBox(
+            width: device.width * 0.03,
+          ),
+          Text(
+            txt,
+            style: textstyle.textstyle14.copyWith(color: Colors.black),
+          ),
+          Spacer(),
+          Icon(
+            Icons.arrow_forward_ios_outlined,
+            size: device.width * 0.04,
+          )
+        ],
+      ),
     );
   }
 }
