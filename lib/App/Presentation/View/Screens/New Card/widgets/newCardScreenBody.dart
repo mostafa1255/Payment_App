@@ -3,7 +3,6 @@ import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
 import '../../../../../Styles/Assets.dart';
-import '../../../Widgets/customBackIcon.dart';
 import '../../../Widgets/customMainButton.dart';
 
 class newCardScreenBody extends StatelessWidget {

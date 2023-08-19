@@ -20,4 +20,7 @@ class Aseets {
   static const wallet = "assets/Icons/Group7.png";
   static const message = "assets/images/Messages 03.png";
   static const walletimage = "assets/images/Wallet 02.png";
+  static const walletimage2 = "assets/images/Wallet 03.png";
+  static const walletimage3 = "assets/images/Vector.png";
+  static const visa = "assets/Icons/symbols 1.png";
 }

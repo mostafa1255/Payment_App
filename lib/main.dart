@@ -8,6 +8,7 @@ import 'package:payment_app/App/Presentation/View/Screens/Bills%20&%20Services/B
 import 'package:payment_app/App/Presentation/View/Screens/Messages/Message_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/New%20Card/new_Card.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Transfer%20succesful/Transfer_succesful.dart';
+import 'package:payment_app/App/Presentation/View/Screens/card%20details/card_details_Screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false, home: newCardScreen());
+        debugShowCheckedModeBanner: false, home: carddetailsScreen());
   }
 }
