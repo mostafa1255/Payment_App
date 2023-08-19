@@ -23,4 +23,5 @@ class Aseets {
   static const walletimage2 = "assets/images/Wallet 03.png";
   static const walletimage3 = "assets/images/Vector.png";
   static const visa = "assets/Icons/symbols 1.png";
+  static const Social = "assets/images/Social 04.png";
 }
