@@ -5,7 +5,9 @@ import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart'
 import 'customContainerwithApplogo.dart';
 
 class numberKeyboard extends StatefulWidget {
-  const numberKeyboard({super.key});
+  const numberKeyboard({
+    super.key,
+  });
 
   @override
   State<numberKeyboard> createState() => _numberKeyboardState();
@@ -31,16 +33,7 @@ class _numberKeyboardState extends State<numberKeyboard> {
           ),
         ),
         SizedBox(
-          height: device.height * 0.02,
-        ),
-        customContainerwithApplogo(device: device),
-        SizedBox(
-          height: device.height * 0.02,
-        ),
-        customMainButton(
-          device: device,
-          txt: "Send",
-          onPressed: () {},
+          height: device.height * 0.01,
         ),
         SizedBox(
           height: device.height * 0.05,

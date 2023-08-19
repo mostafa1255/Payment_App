@@ -3,6 +3,8 @@ import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
+import '../../../Widgets/customMainButton.dart';
+import 'customContainerwithApplogo.dart';
 import 'numberKeyboard.dart';
 
 class TransferScreenBody extends StatelessWidget {
@@ -70,6 +72,15 @@ class TransferScreenBody extends StatelessWidget {
             const Text(
               "Victory",
               style: textstyle.textstyle20,
+            ),
+            customContainerwithApplogo(device: device),
+            SizedBox(
+              height: device.height * 0.02,
+            ),
+            customMainButton(
+              device: device,
+              txt: "Send",
+              onPressed: () {},
             ),
             const numberKeyboard()
           ],

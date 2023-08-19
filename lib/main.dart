@@ -3,6 +3,7 @@
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Add%20money%20with%20card/Add_money_with_card_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Add%20money/Add_money.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Bills%20&%20Services/Bills_Services.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Messages/Message_Screen.dart';
@@ -26,6 +27,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false, home: carddetailsScreen());
+        debugShowCheckedModeBanner: false, home: AddmoneywithcardScreen());
   }
 }
