@@ -6,7 +6,8 @@ import 'package:flutter_stripe/flutter_stripe.dart';
 import 'package:get/get.dart';
 import 'package:payment_app/App/Presentation/View/Screens/money%20added%20successful/money_added_successful.dart';
 import 'package:payment_app/App/Presentation/View/Screens/stripe_screen_test.dart';
-import 'package:payment_app/App/data/Stripe_Payment/Stripe_Keys.dart';
+import 'package:payment_app/App/Tools/Stripe_Keys.dart';
+import 'App/Presentation/View/Screens/Transfer Page/Transfer_Screen.dart';
 import 'firebase_options.dart';
 
 void main() async {
@@ -25,6 +26,6 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return GetMaterialApp(
-        debugShowCheckedModeBanner: false, home: Stripetest());
+        debugShowCheckedModeBanner: false, home: TransferScreen());
   }
 }
