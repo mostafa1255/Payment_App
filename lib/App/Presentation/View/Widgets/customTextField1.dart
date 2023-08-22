@@ -6,13 +6,16 @@ class customTextField1 extends StatelessWidget {
     required this.txt,
     required this.icon,
     this.data,
+    this.keyboardType,
   });
   final String txt;
   final String icon;
   final TextEditingController? data;
+  final TextInputType? keyboardType;
   @override
   Widget build(BuildContext context) {
     return TextFormField(
+      keyboardType: keyboardType,
       controller: data,
       decoration: InputDecoration(
           enabledBorder: OutlineInputBorder(

@@ -6,7 +6,6 @@ import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/otp_Screen.da
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customTextField1.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
-
 import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 
 class Phonenumber extends StatefulWidget {
@@ -33,38 +32,45 @@ class _PhonenumberState extends State<Phonenumber> {
         builder: (context, state) {
           return Scaffold(
             body: SingleChildScrollView(
-              child: Column(
-                children: [
-                  SizedBox(
-                    height: device.height * 0.5,
-                  ),
-                  customTextField1(
-                    data: phone,
-                    icon: Aseets.Phone,
-                    txt: "Phone num",
-                  ),
-                  customMainButton(
-                    device: device,
-                    txt: "Navigate to otp",
-                    onPressed: () async {
-                      await auth.verifyPhoneNumber(
-                        timeout: Duration(seconds: 30),
-                        phoneNumber: '+2${phone.text.trim()}',
-                        verificationCompleted:
-                            (PhoneAuthCredential credential) {},
-                        verificationFailed: (FirebaseAuthException e) {},
-                        codeSent:
-                            (String verificationId, int? resendToken) async {
-                          Get.to(otpScreen(
-                            verificationId: verificationId,
-                            Phonenum: phone.text,
-                          ));
-                        },
-                        codeAutoRetrievalTimeout: (String verificationId) {},
-                      );
-                    },
-                  )
-                ],
+              child: Padding(
+                padding: EdgeInsets.symmetric(horizontal: device.width * .03),
+                child: Column(
+                  children: [
+                    SizedBox(
+                      height: device.height * 0.4,
+                    ),
+                    customTextField1(
+                      keyboardType: TextInputType.number,
+                      data: phone,
+                      icon: Aseets.Phone,
+                      txt: "Phone num",
+                    ),
+                    SizedBox(
+                      height: device.height * 0.4,
+                    ),
+                    customMainButton(
+                      device: device,
+                      txt: "Sign Up",
+                      onPressed: () async {
+                        await auth.verifyPhoneNumber(
+                          timeout: const Duration(seconds: 30),
+                          phoneNumber: '+2${phone.text.trim()}',
+                          verificationCompleted:
+                              (PhoneAuthCredential credential) {},
+                          verificationFailed: (FirebaseAuthException e) {},
+                          codeSent:
+                              (String verificationId, int? resendToken) async {
+                            Get.to(otpScreen(
+                              verificationId: verificationId,
+                              Phonenum: phone.text,
+                            ));
+                          },
+                          codeAutoRetrievalTimeout: (String verificationId) {},
+                        );
+                      },
+                    )
+                  ],
+                ),
               ),
             ),
           );
