@@ -27,7 +27,7 @@ class moneyaddedsuccessfulScreenBody extends StatelessWidget {
           Text(
             "Yaaayyyyy!",
             style: textstyle.textstyle24
-                .copyWith(color: Color(colors.kPrimaryColor)),
+                .copyWith(color: const Color(colors.kPrimaryColor)),
           ),
           SizedBox(
             height: device.height * 0.02,
