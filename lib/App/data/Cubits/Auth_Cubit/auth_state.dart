@@ -30,3 +30,19 @@ final class AuthPhoneFaliure extends AuthState {
 
   AuthPhoneFaliure({required this.errmessage});
 }
+
+final class ResetPasswordsucsess extends AuthState {}
+
+final class ResetPasswordFaliure extends AuthState {
+  final String errmessage;
+
+  ResetPasswordFaliure({required this.errmessage});
+}
+
+final class Verifysucsess extends AuthState {}
+
+final class VerifyFaliure extends AuthState {
+  final String errmessage;
+
+  VerifyFaliure({required this.errmessage});
+}

@@ -1,5 +1,3 @@
-import 'dart:math';
-
 import 'package:bloc/bloc.dart';
 import 'package:firebase_auth/firebase_auth.dart';
 import 'package:meta/meta.dart';
@@ -18,6 +16,7 @@ class AuthCubit extends Cubit<AuthState> {
     try {
       await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
+
       emit(AuthSignUpSucsess());
     } on FirebaseException catch (e) {
       emit(AuthSignUpFaliure(errmessage: '${e.message}'));
@@ -32,6 +31,28 @@ class AuthCubit extends Cubit<AuthState> {
       emit(AuthLoginSucsess());
     } on FirebaseAuthException catch (e) {
       emit(AuthLoginFaliure(errmessage: '${e.message}'));
+    }
+  }
+
+  void resetPassword({required String email}) async {
+    try {
+      if (email != "") {
+        await auth.sendPasswordResetEmail(email: email);
+        emit(ResetPasswordsucsess());
+      }
+    } on Exception catch (e) {
+      emit(ResetPasswordFaliure(errmessage: e.toString()));
+    }
+  }
+
+  Future<void> verifyEmail() async {
+    try {
+      auth.currentUser!.sendEmailVerification();
+      emit(Verifysucsess());
+      print("verify sucsess");
+    } catch (e) {
+      emit(VerifyFaliure(errmessage: e.toString()));
+      print("verify faliure ${e.toString()}");
     }
   }
 
