@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/Home_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
 import 'package:payment_app/App/Styles/colors.dart';
@@ -11,6 +12,7 @@ import '../../../../Widgets/customCheckBox.dart';
 import '../../../../Widgets/customSideButton.dart';
 import '../../../../Widgets/customTextField1.dart';
 import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
+
 class LoginScreenBody extends StatefulWidget {
   const LoginScreenBody({super.key});
 
@@ -115,10 +117,15 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                       SizedBox(
                         width: device.width * 0.10,
                       ),
-                      Text(
-                        "Forget your password?",
-                        style: textstyle.textstyle14
-                            .copyWith(color: const Color(colors.kPrimaryColor)),
+                      GestureDetector(
+                        onTap: () {
+                          cubit.resetPassword(email: emailController.text);
+                        },
+                        child: Text(
+                          "Forget your password?",
+                          style: textstyle.textstyle14.copyWith(
+                              color: const Color(colors.kPrimaryColor)),
+                        ),
                       )
                     ],
                   ),
@@ -140,6 +147,9 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
                   customSideButton(
                     device: device,
                     txt: 'Sign Up',
+                    onPressed: () {
+                      Get.to(RegisterScreen());
+                    },
                   )
                 ],
               ),

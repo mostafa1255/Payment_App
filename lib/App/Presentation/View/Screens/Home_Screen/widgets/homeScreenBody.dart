@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Add%20money/Add_money.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/widgets/customhomebuttons.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
@@ -103,6 +105,9 @@ class homeScreenBody extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 customhomebuttons(
+                  onPressed: () {
+                    Get.to(addmoneyScreen());
+                  },
                   device: device,
                   iconData: Icons.add,
                   txt: "Add money",
@@ -154,5 +159,3 @@ class homeScreenBody extends StatelessWidget {
     );
   }
 }
-
-

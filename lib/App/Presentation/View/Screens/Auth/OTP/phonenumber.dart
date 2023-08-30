@@ -8,6 +8,8 @@ import 'package:payment_app/App/Presentation/View/Widgets/customTextField1.dart'
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 
+import 'OTP_Sucsess.dart';
+
 class Phonenumber extends StatefulWidget {
   Phonenumber({super.key});
 
@@ -27,7 +29,9 @@ class _PhonenumberState extends State<Phonenumber> {
       create: (context) => AuthCubit(),
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          // TODO: implement listener
+          if (state is AuthPhoneSucsess) {
+            Get.to(() => otpsucsessScreen());
+          }
         },
         builder: (context, state) {
           return Scaffold(
@@ -46,28 +50,34 @@ class _PhonenumberState extends State<Phonenumber> {
                       txt: "Phone num",
                     ),
                     SizedBox(
-                      height: device.height * 0.4,
+                      height: device.height * 0.15,
                     ),
-                    customMainButton(
-                      device: device,
-                      txt: "Sign Up",
-                      onPressed: () async {
-                        await auth.verifyPhoneNumber(
-                          timeout: const Duration(seconds: 30),
-                          phoneNumber: '+2${phone.text.trim()}',
-                          verificationCompleted:
-                              (PhoneAuthCredential credential) {},
-                          verificationFailed: (FirebaseAuthException e) {},
-                          codeSent:
-                              (String verificationId, int? resendToken) async {
-                            Get.to(otpScreen(
-                              verificationId: verificationId,
-                              Phonenum: phone.text,
-                            ));
-                          },
-                          codeAutoRetrievalTimeout: (String verificationId) {},
-                        );
-                      },
+                    Padding(
+                      padding: EdgeInsets.only(
+                          bottom:
+                              MediaQuery.of(context).viewInsets.bottom * 0.1),
+                      child: customMainButton(
+                        device: device,
+                        txt: "Sign Up",
+                        onPressed: () async {
+                          await auth.verifyPhoneNumber(
+                            timeout: const Duration(seconds: 30),
+                            phoneNumber: '+2${phone.text.trim()}',
+                            verificationCompleted:
+                                (PhoneAuthCredential credential) {},
+                            verificationFailed: (FirebaseAuthException e) {},
+                            codeSent: (String verificationId,
+                                int? resendToken) async {
+                              Get.to(otpScreen(
+                                verificationId: verificationId,
+                                Phonenum: phone.text,
+                              ));
+                            },
+                            codeAutoRetrievalTimeout:
+                                (String verificationId) {},
+                          );
+                        },
+                      ),
                     )
                   ],
                 ),

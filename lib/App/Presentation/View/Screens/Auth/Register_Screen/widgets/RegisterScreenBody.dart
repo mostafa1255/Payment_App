@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/Login_Screen/Login_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/OTP_Sucsess.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/phonenumber.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
@@ -10,7 +11,6 @@ import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
 import 'package:payment_app/App/Styles/text_Style.dart';
 import 'package:csc_picker/csc_picker.dart';
-import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 import 'package:payment_app/App/data/Cubits/Auth_Cubit/auth_cubit.dart';
 
 class RegisterScreenBody extends StatelessWidget {
@@ -32,7 +32,7 @@ class RegisterScreenBody extends StatelessWidget {
               backgroundColor: Colors.green,
               icon: Icon(Icons.check, color: Colors.white),
             ));
-            // Get.to(() => otpScreen());
+            Get.to(() => const otpsucsessScreen());
           } else if (state is AuthSignUpFaliure) {
             Get.showSnackbar(GetSnackBar(
               title: "Faliure",
@@ -183,6 +183,9 @@ class RegisterScreenBody extends StatelessWidget {
                         ),
                       ),
                     ],
+                  ),
+                  SizedBox(
+                    height: device.height * 0.05,
                   ),
                 ],
               ),

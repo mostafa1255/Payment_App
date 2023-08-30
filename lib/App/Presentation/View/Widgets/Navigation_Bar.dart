@@ -1,7 +1,8 @@
 import 'package:bottom_bar_with_sheet/bottom_bar_with_sheet.dart';
 import 'package:flutter/material.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/Register_Screen/Register_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Home_Screen/Home_Screen.dart';
+import 'package:payment_app/App/Presentation/View/Screens/Messages/Message_Screen.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Wallet_Screen/wallet_Screen.dart';
 import 'package:payment_app/App/Styles/Assets.dart';
 import 'package:payment_app/App/Styles/colors.dart';
@@ -16,11 +17,10 @@ class bottomnavigationBar extends StatefulWidget {
 }
 
 List screens = [
-  const LoginScreen(),
+  const homeScreen(),
   const walletScreen(),
-  const walletScreen(),
+  const messageScreen(),
   const LoginScreen(),
-  const RegisterScreen(),
 ];
 int _slectedIndex = 0;
 
