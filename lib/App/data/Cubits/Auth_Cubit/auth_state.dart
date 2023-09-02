@@ -46,3 +46,11 @@ final class VerifyFaliure extends AuthState {
 
   VerifyFaliure({required this.errmessage});
 }
+
+final class SucsessSavedatatofireStore extends AuthState {}
+
+final class FaliureSavedatatofireStore extends AuthState {
+  final String errmessage;
+
+  FaliureSavedatatofireStore({required this.errmessage});
+}

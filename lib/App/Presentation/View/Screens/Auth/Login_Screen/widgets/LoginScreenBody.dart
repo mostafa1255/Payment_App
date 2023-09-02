@@ -1,3 +1,4 @@
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
@@ -30,7 +31,8 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
       create: (context) => AuthCubit(),
       child: BlocConsumer<AuthCubit, AuthState>(
         listener: (context, state) {
-          if (state is AuthLoginSucsess) {
+          if (state is AuthLoginSucsess &&
+              FirebaseAuth.instance.currentUser!.emailVerified) {
             Get.showSnackbar(const GetSnackBar(
               title: "Sucsess",
               message: "Login Sucsessfull",
@@ -38,7 +40,11 @@ class _LoginScreenBodyState extends State<LoginScreenBody> {
               backgroundColor: Colors.green,
               icon: Icon(Icons.check, color: Colors.white),
             ));
-            Get.to(() => homeScreen());
+            Get.to(() => const homeScreen());
+          } else if (FirebaseAuth.instance.currentUser!.emailVerified ==
+              false) {
+            BlocProvider.of<AuthCubit>(context).verifyEmail();
+            setState(() {});
           } else if (state is AuthLoginFaliure) {
             print(state.errmessage);
             Get.showSnackbar(GetSnackBar(

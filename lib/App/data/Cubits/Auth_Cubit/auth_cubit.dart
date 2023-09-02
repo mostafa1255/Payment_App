@@ -1,6 +1,9 @@
 import 'package:bloc/bloc.dart';
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
+import 'package:payment_app/App/data/models/User_Model.dart';
 
 part 'auth_state.dart';
 
@@ -11,22 +14,34 @@ class AuthCubit extends Cubit<AuthState> {
 
   FirebaseAuth auth = FirebaseAuth.instance;
 
-  void Register({required String email, required String password}) async {
+  void Register(
+      {required String email,
+      required String password,
+      required String name}) async {
     emit(LoadingState());
     try {
-      await FirebaseAuth.instance
+      UserCredential userCredential = await FirebaseAuth.instance
           .createUserWithEmailAndPassword(email: email, password: password);
-
-      emit(AuthSignUpSucsess());
+      if (userCredential.user?.uid != null) {
+        debugPrint("User craeted sucsess${userCredential.user!.uid}");
+        //  String mos = await UploadImageToStorage();
+        //  debugPrint("Imageeeee Url is $mos");
+        sendUserDatatoFirestore(
+          name: name,
+          email: email,
+          UserId: userCredential.user!.uid,
+        );
+        emit(AuthSignUpSucsess());
+      }
     } on FirebaseException catch (e) {
       emit(AuthSignUpFaliure(errmessage: '${e.message}'));
     }
   }
 
-  void Login({required String email, required String password}) async {
+  Future<void> Login({required String email, required String password}) async {
     emit(LoadingState());
     try {
-      final credential = await FirebaseAuth.instance
+      await FirebaseAuth.instance
           .signInWithEmailAndPassword(email: email, password: password);
       emit(AuthLoginSucsess());
     } on FirebaseAuthException catch (e) {
@@ -48,11 +63,19 @@ class AuthCubit extends Cubit<AuthState> {
   Future<void> verifyEmail() async {
     try {
       auth.currentUser!.sendEmailVerification();
-      emit(Verifysucsess());
       print("verify sucsess");
     } catch (e) {
-      emit(VerifyFaliure(errmessage: e.toString()));
       print("verify faliure ${e.toString()}");
+    }
+  }
+
+  Future<void> checkVerify() async {
+    try {
+      if (auth.currentUser!.emailVerified) {
+        emit(Verifysucsess());
+      }
+    } catch (e) {
+      emit(VerifyFaliure(errmessage: e.toString()));
     }
   }
 
@@ -80,5 +103,22 @@ class AuthCubit extends Cubit<AuthState> {
     PhoneAuthCredential credential = PhoneAuthProvider.credential(
         verificationId: verificationId, smsCode: smsCode);
     await auth.signInWithCredential(credential);
+  }
+
+  void sendUserDatatoFirestore({
+    required String name,
+    required String email,
+    required String UserId,
+  }) async {
+    userModel usermodel = userModel(email: email, id: UserId, name: name);
+    try {
+      await FirebaseFirestore.instance
+          .collection("users")
+          .doc(UserId)
+          .set(usermodel.toJcon());
+      emit(SucsessSavedatatofireStore());
+    } on FirebaseException catch (e) {
+      emit(FaliureSavedatatofireStore(errmessage: e.toString()));
+    }
   }
 }

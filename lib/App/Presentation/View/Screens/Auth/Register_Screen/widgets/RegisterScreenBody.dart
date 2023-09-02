@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get/get.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/Login_Screen/Login_Screen.dart';
-import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/OTP_Sucsess.dart';
 import 'package:payment_app/App/Presentation/View/Screens/Auth/OTP/phonenumber.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customBackIcon.dart';
 import 'package:payment_app/App/Presentation/View/Widgets/customMainButton.dart';
@@ -17,6 +16,8 @@ class RegisterScreenBody extends StatelessWidget {
   RegisterScreenBody({super.key});
   final emailController = TextEditingController();
   final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     Size device = MediaQuery.sizeOf(context);
@@ -32,7 +33,7 @@ class RegisterScreenBody extends StatelessWidget {
               backgroundColor: Colors.green,
               icon: Icon(Icons.check, color: Colors.white),
             ));
-            Get.to(() => const otpsucsessScreen());
+            Get.to(() => const LoginScreen());
           } else if (state is AuthSignUpFaliure) {
             Get.showSnackbar(GetSnackBar(
               title: "Faliure",
@@ -78,8 +79,10 @@ class RegisterScreenBody extends StatelessWidget {
                   SizedBox(
                     height: device.height * 0.03,
                   ),
-                  const customTextField1(
-                      txt: "First name", icon: Aseets.account),
+                  customTextField1(
+                      data: nameController,
+                      txt: "First name",
+                      icon: Aseets.account),
                   SizedBox(
                     height: device.height * 0.03,
                   ),
@@ -121,6 +124,7 @@ class RegisterScreenBody extends StatelessWidget {
                     txt: "Sign Up",
                     onPressed: () {
                       cubit.Register(
+                          name: nameController.text,
                           email: emailController.text,
                           password: passwordController.text);
                     },

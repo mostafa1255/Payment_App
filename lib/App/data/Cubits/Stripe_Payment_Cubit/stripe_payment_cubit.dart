@@ -15,7 +15,7 @@ class StripePaymentCubit extends Cubit<StripePaymentState> {
       await Stripe.instance.presentPaymentSheet();
       emit(StripePaymentSucsess());
     } on Exception catch (e) {
-      print("in catch Bloc");
+      print("in catch Bloc${e.toString()}");
       emit(StripePaymentFaliure(errmessage: e.toString()));
     }
   }
