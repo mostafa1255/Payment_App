@@ -4,7 +4,6 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 import 'package:payment_app/App/data/models/User_Model.dart';
-
 part 'auth_state.dart';
 
 class AuthCubit extends Cubit<AuthState> {
@@ -49,13 +48,15 @@ class AuthCubit extends Cubit<AuthState> {
     }
   }
 
-  void resetPassword({required String email}) async {
+  Future<void> resetPassword({required String email}) async {
     try {
       if (email != "") {
-        await auth.sendPasswordResetEmail(email: email);
+        await auth.sendPasswordResetEmail(email: email.toString());
+        print("Reset sucsess");
         emit(ResetPasswordsucsess());
       }
     } on Exception catch (e) {
+      print("Reset faliure${e.toString()}");
       emit(ResetPasswordFaliure(errmessage: e.toString()));
     }
   }
